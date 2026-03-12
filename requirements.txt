@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+aiogram
+sqlalchemy
+alembic
+asyncpg
+httpx
+beautifulsoup4
+lxml
+apscheduler
+redis
+python-dotenv
+pydantic-settings
