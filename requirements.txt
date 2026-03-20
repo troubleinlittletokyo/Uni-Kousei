@@ -11,3 +11,4 @@ apscheduler
 redis
 python-dotenv
 pydantic-settings
+apscheduler

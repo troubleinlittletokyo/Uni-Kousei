@@ -12,13 +12,17 @@ class User(Base):
 
     role = Column(String, default="Student")
 
+    university = Column(String, nullable=True)
+    group_name = Column(String, nullable=True)
     group_id = Column(Integer, ForeignKey("groups.id"), nullable=True)
     subgroup = Column(Integer, default=1)
     faculty = Column(String, nullable=True)
     course = Column(Integer, nullable=True)
 
+    daily_schedule = Column(Boolean, default=True)
+    daily_schedule_time = Column(String, default="06:00")
     notify_time = Column(Integer, default=10)
-    notifications_enable = Column(Boolean, default=True)
+    notifications_lessons = Column(Boolean, default=True)
 
 class Group(Base):
     __tablename__ = "groups"

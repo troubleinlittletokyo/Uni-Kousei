@@ -18,24 +18,23 @@ if not dp.sub_routers:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("=== ПОДГОТОВКА БАЗЫ ДАННЫХ ===")
     await init_db()
     
-    print("--- ЗАПУСК БОТА ---")
     polling_task = asyncio.create_task(dp.start_polling(bot))
     
-    yield 
+    yield  
     
-    print("--- ОСТАНОВКА БОТА ---")
     polling_task.cancel()
     await bot.session.close()
 
-app = FastAPI(title="AmSU Student Assistant", lifespan=lifespan)
+app = FastAPI(title="Uni-Kousei", lifespan=lifespan)
 
 @app.get("/")
 async def root():
     return {"status": "online", "bot_running": True}
 
 if __name__ == "__main__":
+
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
